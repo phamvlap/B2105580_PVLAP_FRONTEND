@@ -27,9 +27,4 @@ const props = defineProps({
             <i v-else class="fas fa-times"></i>
         </div>
     </div>
-    <div class="text-start">
-        <button class="btn btn-sm btn-warning">
-            <i class="fa-solid fa-pen-to-square me-1"></i>Hiệu chỉnh
-        </button>
-    </div>
 </template>

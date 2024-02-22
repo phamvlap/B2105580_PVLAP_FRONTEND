@@ -1,7 +1,7 @@
 import createApiClient from './api.service';
 
 class UserService {
-    constructor(baseURL = 'api/auth', customHeaders = {}) {
+    constructor(baseURL = '/api/auth', customHeaders = {}) {
         this.api = createApiClient(baseURL, customHeaders);
     }
     async register(data) {

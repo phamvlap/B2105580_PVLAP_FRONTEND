@@ -90,8 +90,8 @@ const goToAddContact = () => {
 const updateActiveIndex = (index) => {
     activeIndex.value = index;
 }
-onMounted(() => {
-    refreshList();
+onMounted(async () => {
+    await refreshList();
 });
 </script>
 
@@ -137,6 +137,18 @@ onMounted(() => {
                     <i class="fas fa-address-card"></i>
                 </h4>
                 <ContactCard :contact="activeContact" />
+                <RouterLink
+                    :to="{
+                        name: 'contact.edit',
+                        params: {
+                            id: activeContact._id,
+                        }
+                    }"
+                >
+                    <span class="mt-2 btn btn-warning">
+                        <i class="fas fa-edit me-1"></i>Hiệu chỉnh
+                    </span>
+                </RouterLink>
             </div>
         </div>
     </div>
