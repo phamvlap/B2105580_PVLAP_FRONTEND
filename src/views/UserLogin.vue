@@ -16,7 +16,8 @@ const onSubmit = async () => {
             email: email.value,
             password: password.value,
         });
-        const user = data.data;
+        const user = { ...data.data };
+        user.expiresIn = new Date().getTime() + Number(user.expiresIn) * 1000;
         email.value = '';
         password.value = '';
         localStorage.setItem('userData', JSON.stringify(user));      

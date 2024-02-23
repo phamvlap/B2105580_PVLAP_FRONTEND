@@ -23,15 +23,13 @@ const updateActiveUser = (payload) => {
         $router.push({
             name: 'user.login',
         });
-    }, Number(user.value.expiresIn) * 1000);
+    }, Number(user.value.expiresIn) - new Date().getTime());
 }
 
 onMounted(() => {
     const data = JSON.parse(localStorage.getItem('userData'));
-    user.value = null;
     if(data != null) {
-        const { name, email } = data;
-        user.value = { name, email, };
+        updateActiveUser(data);
     }
 });
 </script>
